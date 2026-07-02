@@ -1,0 +1,30 @@
+{
+  "dashboard_name": "World Cup Sentiment Dashboard",
+
+  "charts": [
+
+    {
+      "name": "Sentiment Timeline",
+      "table": "sentiment_hourly",
+      "type": "line"
+    },
+
+    {
+      "name": "Football Events",
+      "table": "football_events",
+      "type": "timeline"
+    },
+
+    {
+      "name": "Sentiment Distribution",
+      "table": "sentiment_hourly",
+      "type": "pie"
+    },
+
+    {
+      "name": "Topics Distribution",
+      "table": "social_posts",
+      "type": "bar"
+    }
+  ]
+}

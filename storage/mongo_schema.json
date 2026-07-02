@@ -1,0 +1,9 @@
+{
+  "tweet_id": "string",
+  "text": "string",
+  "created_at": "datetime",
+  "language": "string",
+  "sentiment": "string",
+  "topic": "string",
+  "match": "string"
+}
