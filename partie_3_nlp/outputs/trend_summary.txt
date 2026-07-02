@@ -3,18 +3,12 @@ Résumé automatique des tendances — FIFA World Cup 2022
 Période analysée : du 2022-11-20 00:01:45 au 2022-11-20 23:58:41.
 Nombre de messages publics traités : 3000.
 
-Le sentiment dominant est : positif.
-Répartition des sentiments : positif: 1298, neutre: 1096, négatif: 606.
+Le sentiment dominant est : neutre.
+Répartition des sentiments : neutre: 1216, négatif: 1042, positif: 742.
 
-Les sujets les plus visibles sont : autre: 797, worldcup2022 / the / cup / world: 618, qatar / the / worldcup2022 / to: 431, offside / was / that / worldcup2022: 152, ecuador / qatar / worldcup2022 / ecuadorvsqatar: 148.
-Les sujets les plus associés aux réactions négatives sont : autre: 176, qatar / the / worldcup2022 / to: 118, worldcup2022 / the / cup / world: 78.
+Les sujets les plus visibles sont : autre: 909, ecuador / ecuadorvsqatar / qatar / score: 169, jungkook / dreamersbyjungkook / jungkookatfifaworldcup / dreamers: 127, valencia / enner / goals / ecuador: 72, 12 / germany / rica / costa: 68.
+Les sujets les plus associés aux réactions négatives sont : autre: 304, ecuador / ecuadorvsqatar / qatar / score: 58, worst / like / qatar / players: 38.
+Sources les plus présentes : Twitter for iPhone: 1194, Twitter for Android: 916, Twitter Web App: 641, TweetDeck: 54, Twitter for iPad: 42.
 
-Le pic d'activité le plus important est observé autour de 2022-11-20 16:00:00, avec environ 1006 messages.
-La période la moins positive est observée autour de 2022-11-20 16:00:00, avec un indice de sentiment de 0.047.
-Interprétation :
-L'analyse montre l'évolution de l'humeur des supporters autour de la Coupe du Monde 2022.
-Les pics positifs peuvent être liés à l'enthousiasme autour des équipes, des joueurs ou de la compétition.
-Les pics négatifs peuvent être liés à des polémiques, des critiques ou des sujets externes associés à l'événement.
-Les topics détectés permettent d'identifier les thèmes qui génèrent le plus de réactions dans les tweets.
-
-Ce résumé est destiné à être intégré dans le dashboard Superset comme encart d'aide à l'interprétation.
+Ce résumé est basé uniquement sur les posts enrichis par NLP.
+Les agrégats Gold et la visualisation Superset sont pris en charge dans la partie Data Analyst.
