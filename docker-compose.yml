@@ -122,6 +122,13 @@ services:
 
       CLUSTER_ID: 5L6g3nShT-eMCtK--X86sw
 
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+
+    volumes:
+      - kafka_data:/opt/kafka/data
   # ==========================================
   # MONGODB
   # ==========================================
@@ -177,3 +184,4 @@ volumes:
   mongo_data:
   ollama_data:
   superset_home:
+  kafka_data:
