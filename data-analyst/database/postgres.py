@@ -2,6 +2,7 @@ import psycopg2
 
 from config import *
 
+
 class PostgresManager:
 
     def __init__(self):
@@ -90,7 +91,12 @@ class PostgresManager:
             topic,
             occurrences
         )
-        VALUES (%s,%s,%s,%s);
+        VALUES (%s,%s,%s,%s)
+
+        ON CONFLICT (hour_ts, match_id, topic)
+        DO UPDATE SET
+        occurrences = EXCLUDED.occurrences;
+        
         """
 
         self.execute(
@@ -100,6 +106,138 @@ class PostgresManager:
                 match_id,
                 topic,
                 occurrences
+            )
+        )
+
+    def insert_sentiment_timeline(
+        self,
+        hour_ts,
+        match_id,
+        sentiment_index,
+        dominant_sentiment,
+        total_posts
+    ):
+
+
+        query = """
+        INSERT INTO sentiment_timeline
+        (
+            hour_ts,
+            match_id,
+            sentiment_index,
+            dominant_sentiment,
+            total_posts
+        )
+        VALUES (%s,%s,%s,%s,%s)
+
+        ON CONFLICT (hour_ts, match_id)
+
+        DO UPDATE SET
+
+        sentiment_index = EXCLUDED.sentiment_index,
+        dominant_sentiment = EXCLUDED.dominant_sentiment,
+        total_posts = EXCLUDED.total_posts;
+        """
+
+        self.execute(
+            query,
+            (
+                hour_ts,
+                match_id,
+                sentiment_index,
+                dominant_sentiment,
+                total_posts
+            )
+        )
+
+    def insert_event_correlation(
+        self,
+        event_id,
+        match_id,
+        event_time,
+        event_type,
+        volume_delta,
+        sentiment_delta,
+        dominant_topic_after,
+        correlation_strength,
+        explanation
+    ):
+
+        query = """
+        INSERT INTO event_correlations
+        (
+            event_id,
+            match_id,
+            event_time,
+            event_type,
+            volume_delta,
+            sentiment_delta,
+            dominant_topic_after,
+            correlation_strength,
+            explanation
+        )
+
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+       
+
+        ON CONFLICT (event_id)
+        DO UPDATE SET
+
+        volume_delta = EXCLUDED.volume_delta,
+        sentiment_delta = EXCLUDED.sentiment_delta,
+        dominant_topic_after = EXCLUDED.dominant_topic_after,
+        correlation_strength = EXCLUDED.correlation_strength,
+        explanation = EXCLUDED.explanation;
+        """
+
+        self.execute(
+            query,
+            (
+                event_id,
+                match_id,
+                event_time,
+                event_type,
+                volume_delta,
+                sentiment_delta,
+                dominant_topic_after,
+                correlation_strength,
+                explanation
+            )
+        )
+
+    def insert_trend_summary(
+        self,
+        match_id,
+        match_name,
+        summary_text,
+        generated_at
+    ):
+
+        query = """
+        INSERT INTO trend_summary
+        (
+            match_id,
+            match_name,
+            summary_text,
+            generated_at
+        )
+        VALUES (%s,%s,%s,%s)
+
+        ON CONFLICT (match_id)
+
+        DO UPDATE SET
+
+        summary_text = EXCLUDED.summary_text,
+        generated_at = EXCLUDED.generated_at;
+        """
+
+        self.execute(
+            query,
+            (
+                match_id,
+                match_name,
+                summary_text,
+                generated_at
             )
         )
 

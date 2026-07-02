@@ -29,11 +29,11 @@ class MongoManager:
 
         return list(self.collection.find())
 
-    def get_posts_by_event(self, event_id):
+    def get_posts_by_event(self,  match_id):
 
         return list(
             self.collection.find(
-                {"event_id": event_id}
+                {"match_id": match_id}
             )
         )
 

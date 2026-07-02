@@ -29,8 +29,11 @@ if __name__ == "__main__":
         "02_sentiment_enrichment.py",
         "03_topic_modeling.py",
         "04_generate_aggregates.py",
-        "05_generate_summary.py"
+        "05_generate_summary.py",
+        "06_correlate_match_events.py"
+        
     ]
+    
 
     for step in steps:
         run_step(step)

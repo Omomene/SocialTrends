@@ -3,7 +3,7 @@ project:
   version: "1.0"
 
 input:
-  silver_path: "data/silver_posts_sample.csv"
+  silver_path: "data/silver_posts.csv"
 
 output:
   enriched_posts_path: "outputs/enriched_posts.csv"
