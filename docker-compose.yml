@@ -163,9 +163,11 @@ services:
   # ==========================================
   # SUPERSET
   # ==========================================
-  
+
   superset:
-    image: apache/superset:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
 
     container_name: superset
 
@@ -184,7 +186,7 @@ services:
     command: >
       /bin/bash -c "
       superset db upgrade &&
-      superset fab create-admin --username admin --firstname Admin --lastname User --email admin@admin.com --password admin &&
+      superset fab create-admin --username admin --firstname Admin --lastname User --email admin@admin.com --password admin || true &&
       superset init &&
       superset run -h 0.0.0.0 -p 8088
       "
