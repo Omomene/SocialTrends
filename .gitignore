@@ -1,0 +1,78 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+
+# Mongo/Postgres data
+mongo_data/
+postgres_data/
+
+# Docker
+*.pid
+
+# NLP outputs volumineux
+partie_3_nlp/outputs/*.csv
+partie_3_nlp/outputs/*.txt
+
+# Local datasets
+partie_3_nlp/data/*.csv
+
+# Superset
+superset_home/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Hugging Face / modèles IA
+hf_cache/
+**/hf_cache/
+.cache/
+**/.cache/
+
+# Ollama / modèles locaux
+.ollama/
+**/.ollama/
+
+# Outputs générés
+partie_3_nlp/outputs/
+data-analyst/outputs/
+
+# Fichiers lourds éventuels
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# Environnement
+.env

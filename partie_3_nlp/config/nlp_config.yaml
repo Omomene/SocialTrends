@@ -1,0 +1,22 @@
+project:
+  name: "Social Trends - NLP Enrichment"
+  version: "1.0"
+
+input:
+  silver_path: "data/silver_posts.csv"
+
+output:
+  enriched_posts_path: "outputs/enriched_posts.csv"
+  hourly_aggregates_path: "outputs/hourly_sentiment_aggregates.csv"
+  top_topics_path: "outputs/top_topics.csv"
+  summary_path: "outputs/trend_summary.txt"
+
+nlp:
+  sentiment_model: "cardiffnlp/twitter-xlm-roberta-base-sentiment"
+  max_text_length: 512
+  use_huggingface: true
+  use_bertopic: true
+
+summary:
+  use_ollama: false
+  ollama_model: "qwen3:4b"
