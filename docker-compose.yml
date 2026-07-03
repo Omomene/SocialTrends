@@ -85,6 +85,7 @@ services:
         textblob
         duckdb
         psycopg2-binary
+        vaderSentiment
 
     ports:
       - "8080:8080"
@@ -162,21 +163,31 @@ services:
   # ==========================================
   # SUPERSET
   # ==========================================
-
+  
   superset:
     image: apache/superset:latest
 
-    environment:
-      SUPERSET_SECRET_KEY: socialtrends_secret
+    container_name: superset
 
     ports:
       - "8088:8088"
+
+    environment:
+      SUPERSET_SECRET_KEY: socialtrends_secret
 
     volumes:
       - superset_home:/app/superset_home
 
     depends_on:
       - postgres
+
+    command: >
+      /bin/bash -c "
+      superset db upgrade &&
+      superset fab create-admin --username admin --firstname Admin --lastname User --email admin@admin.com --password admin &&
+      superset init &&
+      superset run -h 0.0.0.0 -p 8088
+      "
 
 volumes:
   minio_data:

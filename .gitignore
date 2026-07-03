@@ -96,3 +96,5 @@ models/
 *.bak
 *.sqlite
 /airflow-webserver.pid
+/webserver_config.py
+/tests

@@ -1,18 +1,24 @@
-CREATE TABLE IF NOT EXISTS sentiment_hourly (
-
+CREATE TABLE IF NOT EXISTS social_gold (
     id SERIAL PRIMARY KEY,
 
-    hour_bucket TIMESTAMP,
+    post_id BIGINT,
+    created_at TIMESTAMP,
 
-    match_name VARCHAR(255),
+    text_clean TEXT,
+    language TEXT,
 
-    positive_count INTEGER,
+    sentiment_label TEXT,
+    sentiment_score FLOAT,
 
-    neutral_count INTEGER,
+    topic TEXT,
 
-    negative_count INTEGER,
+    likes INT,
+    source TEXT,
 
-    total_posts INTEGER,
+    match_name TEXT,
+    team TEXT,
+    player TEXT,
+    event_type TEXT,
 
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    processed_at TIMESTAMP
 );

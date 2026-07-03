@@ -1,14 +1,17 @@
-CREATE TABLE IF NOT EXISTS football_events (
+CREATE TABLE IF NOT EXISTS sentiment_summary (
+    sentiment_label TEXT,
+    total_posts INT
+);
 
-    id SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS team_summary (
+    team TEXT,
+    total_posts INT,
+    avg_sentiment FLOAT
+);
 
-    event_time TIMESTAMP,
-
-    match_name VARCHAR(255),
-
-    event_type VARCHAR(50),
-
-    team VARCHAR(100),
-
-    player VARCHAR(100)
+CREATE TABLE IF NOT EXISTS match_summary (
+    match_name TEXT,
+    total_posts INT,
+    positive_posts INT,
+    negative_posts INT
 );

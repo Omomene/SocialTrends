@@ -1,0 +1,43 @@
+event_time,match,event_type,team,player
+00:05,Argentina vs Saudi Arabia,Kickoff,Argentina,
+00:10,Argentina vs Saudi Arabia,Goal,Argentina,Lionel Messi
+00:18,Argentina vs Saudi Arabia,Yellow Card,Saudi Arabia,Abdulelah Al-Amri
+00:48,Argentina vs Saudi Arabia,Goal,Saudi Arabia,Saleh Al-Shehri
+00:53,Argentina vs Saudi Arabia,Goal,Saudi Arabia,Salem Al-Dawsari
+00:90,Argentina vs Saudi Arabia,Full Time,,
+00:05,France vs Australia,Kickoff,France,
+00:09,France vs Australia,Goal,Australia,Craig Goodwin
+00:27,France vs Australia,Goal,France,Adrien Rabiot
+00:32,France vs Australia,Goal,France,Olivier Giroud
+00:68,France vs Australia,Goal,France,Kylian Mbappe
+00:71,France vs Australia,Goal,France,Olivier Giroud
+00:90,France vs Australia,Full Time,,
+00:05,Brazil vs Serbia,Kickoff,Brazil,
+00:62,Brazil vs Serbia,Goal,Brazil,Richarlison
+00:73,Brazil vs Serbia,Goal,Brazil,Richarlison
+00:90,Brazil vs Serbia,Full Time,,
+00:05,Portugal vs Ghana,Kickoff,Portugal,
+00:65,Portugal vs Ghana,Penalty Goal,Portugal,Cristiano Ronaldo
+00:73,Portugal vs Ghana,Goal,Ghana,Andre Ayew
+00:78,Portugal vs Ghana,Goal,Portugal,Joao Felix
+00:80,Portugal vs Ghana,Goal,Portugal,Rafael Leao
+00:89,Portugal vs Ghana,Goal,Ghana,Osman Bukari
+00:90,Portugal vs Ghana,Full Time,,
+00:05,England vs Iran,Kickoff,England,
+00:35,England vs Iran,Goal,England,Jude Bellingham
+00:43,England vs Iran,Goal,England,Bukayo Saka
+00:45,England vs Iran,Goal,England,Raheem Sterling
+00:62,England vs Iran,Goal,England,Bukayo Saka
+00:71,England vs Iran,Goal,Iran,Mehdi Taremi
+00:90,England vs Iran,Goal,England,Jack Grealish
+00:98,England vs Iran,Penalty Goal,Iran,Mehdi Taremi
+00:100,England vs Iran,Full Time,,
+00:05,Argentina vs France,Kickoff,Argentina,
+00:23,Argentina vs France,Penalty Goal,Argentina,Lionel Messi
+00:36,Argentina vs France,Goal,Argentina,Angel Di Maria
+00:80,Argentina vs France,Penalty Goal,France,Kylian Mbappe
+00:81,Argentina vs France,Goal,France,Kylian Mbappe
+00:108,Argentina vs France,Goal,Argentina,Lionel Messi
+00:118,Argentina vs France,Penalty Goal,France,Kylian Mbappe
+00:120,Argentina vs France,Penalty Shootout,Argentina,
+00:123,Argentina vs France,Full Time,Argentina,
