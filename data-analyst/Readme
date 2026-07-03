@@ -1,0 +1,388 @@
+# Partie – (MongoDB, PostgreSQL, Agrégation et Superset)
+
+## Responsable
+
+Maria Menni 
+
+---
+
+# Mission
+
+Cette partie est responsable de la couche finale de valorisation des données.
+
+Les principales missions réalisées sont :
+
+- conception du modèle documentaire MongoDB ;
+- stockage des résultats NLP dans MongoDB ;
+- développement des agrégations analytiques ;
+- alimentation de PostgreSQL (couche Gold) ;
+- création du dashboard Superset ;
+- déploiement de l'infrastructure Docker.
+
+---
+
+# Architecture de la partie 4
+
+```text
+Partie NLP
+    ↓
+enriched_posts.csv
+    ↓
+MongoDB
+    ↓
+Agrégations Python
+    ↓
+PostgreSQL (Gold)
+    ↓
+Apache Superset
+```
+
+---
+
+# Technologies utilisées
+
+## Stockage documentaire
+
+```text
+MongoDB 7
+```
+
+---
+
+## Base analytique
+
+```text
+PostgreSQL 16
+```
+
+---
+
+## Visualisation
+
+```text
+Apache Superset
+```
+
+---
+
+## Déploiement
+
+```text
+Docker Compose
+```
+
+---
+
+## Développement
+
+```text
+Python
+Pandas
+PyMongo
+Psycopg2
+```
+
+---
+
+# Stockage MongoDB
+
+## Objectif
+
+Stocker les messages enrichis par les traitements NLP.
+
+Chaque document contient :
+
+- les informations du message ;
+- le résultat de l'analyse de sentiment ;
+- le sujet détecté ;
+- les métadonnées NLP.
+
+Collection utilisée :
+
+```text
+posts
+```
+
+---
+
+# Développement réalisé
+
+## save_post.py
+
+Responsabilités :
+
+- création du document MongoDB ;
+- transformation des données NLP ;
+- insertion dans MongoDB.
+
+---
+
+## load_enriched_posts.py
+
+Responsabilités :
+
+- lecture du fichier enrichi produit par le NLP ;
+- chargement automatique des données dans MongoDB.
+
+Fichier chargé :
+
+```text
+outputs/enriched_posts.csv
+```
+
+---
+
+## aggregate.py
+
+Responsabilités :
+
+- calcul des indicateurs analytiques ;
+- agrégation des données MongoDB ;
+- alimentation de PostgreSQL.
+
+Calculs réalisés :
+
+### sentiment_hourly
+
+Répartition des messages :
+
+- positifs ;
+- neutres ;
+- négatifs.
+
+---
+
+### sentiment_timeline
+
+Calcul d'un indice de sentiment :
+
+```text
+-1 = négatif
+ 0 = neutre
++1 = positif
+```
+
+Cet indicateur permet de suivre l'évolution de l'humeur des supporters.
+
+---
+
+### topic_hourly
+
+Nombre d'occurrences des sujets détectés par heure.
+
+---
+
+## load_summary.py
+
+Charge le résumé généré par le NLP dans PostgreSQL.
+
+Source :
+
+```text
+trend_summary.csv
+```
+
+---
+
+## load_event_correlations.py
+
+Charge les corrélations entre événements sportifs et réactions sociales.
+
+Source :
+
+```text
+event_correlation_report.csv
+```
+
+---
+
+# PostgreSQL – Couche Gold
+
+## Objectif
+
+Stocker des données agrégées optimisées pour l'analyse et la visualisation.
+
+Tables alimentées :
+
+| Table | Description |
+|---------|---------|
+| sentiment_hourly | Répartition horaire des sentiments |
+| sentiment_timeline | Évolution du sentiment |
+| topic_hourly | Évolution des sujets |
+| trend_summary | Résumé NLP |
+| event_correlations | Corrélations événements / réactions |
+
+---
+
+# Exécution du pipeline
+
+Le fichier principal :
+
+```python
+main.py
+```
+
+exécute automatiquement :
+
+```text
+1. Chargement MongoDB
+2. Agrégations PostgreSQL
+3. Chargement du résumé NLP
+4. Chargement des corrélations
+```
+
+Pipeline complet :
+
+```text
+enriched_posts.csv
+    ↓
+MongoDB
+    ↓
+aggregate.py
+    ↓
+PostgreSQL
+
+trend_summary.csv
+    ↓
+PostgreSQL
+
+event_correlation_report.csv
+    ↓
+PostgreSQL
+```
+
+---
+
+# Résultats obtenus
+
+## MongoDB
+
+```text
+3000 posts enrichis stockés
+```
+
+---
+
+## PostgreSQL
+
+### sentiment_hourly
+
+```text
+24 lignes
+```
+
+---
+
+### sentiment_timeline
+
+```text
+24 lignes
+```
+
+---
+
+### topic_hourly
+
+```text
+770 lignes
+```
+
+---
+
+### trend_summary
+
+```text
+1 résumé NLP
+```
+
+---
+
+### event_correlations
+
+```text
+300 corrélations
+```
+
+---
+
+# Dashboard Superset
+
+## KPI
+
+- Messages analysés
+- Sentiment moyen
+- Événements analysés
+
+---
+
+## Visualisations réalisées
+
+### Évolution du sentiment
+
+Suivi temporel du sentiment des supporters.
+
+---
+
+### Volume des discussions
+
+Nombre de messages publiés par heure.
+
+---
+
+### Répartition des sentiments
+
+Comparaison :
+
+- positif ;
+- neutre ;
+- négatif.
+
+---
+
+### Top sujets
+
+Principaux sujets détectés par BERTopic.
+
+---
+
+### Force des corrélations
+
+Répartition :
+
+- faible ;
+- moyenne ;
+- forte.
+
+---
+
+### Impact des événements sportifs
+
+Analyse de l'effet des événements de match sur les réactions sociales.
+
+---
+
+# Apport au projet
+
+Cette partie permet de transformer les résultats NLP en indicateurs décisionnels exploitables.
+
+Les données enrichies sont :
+
+1. stockées dans MongoDB ;
+2. agrégées dans PostgreSQL ;
+3. visualisées dans Superset.
+
+Elle constitue ainsi la couche finale d'analyse et de restitution de l'architecture Data.
+
+---
+
+# Conclusion
+
+La partie Data Analyst assure l'ensemble de la chaîne analytique finale du projet.
+
+Elle permet de passer des résultats NLP bruts à des indicateurs métier exploitables pour mesurer :
+
+- l'évolution du sentiment ;
+- les sujets dominants ;
+- les pics d'activité ;
+- l'impact des événements sportifs ;
+- les tendances observées pendant les matchs.

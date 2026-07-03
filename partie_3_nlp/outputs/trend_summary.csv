@@ -1,0 +1,15 @@
+match_id,match_name,summary_text,generated_at,summary_method
+fifa_world_cup_2022,FIFA World Cup 2022,"Résumé automatique des tendances — FIFA World Cup 2022
+
+Période analysée : du 2022-11-20 00:01:45 au 2022-11-20 23:58:41.
+Nombre de messages publics traités : 3000.
+
+Le sentiment dominant est : neutre.
+Répartition des sentiments : neutre: 1216, négatif: 1042, positif: 742.
+
+Les sujets les plus visibles sont : autre: 871, ecuador / ecuadorvsqatar / qatar / score: 159, jungkook / dreamersbyjungkook / jungkookatfifaworldcup / dreamers: 127, offside / was / that / how: 75, palestinian / raisepalestineflag / palestine / flag: 74.
+Les sujets les plus associés aux réactions négatives sont : autre: 279, ecuador / ecuadorvsqatar / qatar / score: 54, offside / was / that / how: 44.
+Sources les plus présentes : Twitter for iPhone: 1194, Twitter for Android: 916, Twitter Web App: 641, TweetDeck: 54, Twitter for iPad: 42.
+
+Ce résumé est basé uniquement sur les posts enrichis par NLP.
+Les agrégats Gold et la visualisation Superset sont pris en charge dans la partie Data Analyst.",2026-07-03 02:02:39.764814,template_fallback_ollama_unavailable
