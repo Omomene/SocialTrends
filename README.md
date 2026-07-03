@@ -21,7 +21,15 @@ Le projet démontre comment des données sociales peuvent être :
 
 Projet réalisé dans le cadre d’un Master en **Data Engineering & AI**
 
-* Groupe : *[ajouter les membres ici]*
+Groupe 3
+
+Omomene Iwelomen : Data Engineer (Ingestion & Orchestration)
+
+Maria Menni : Data Engineer (Traitement & Qualité de la Donnée)
+
+Ikhlas Laghmich : Data Scientist (NLP & IA)
+
+Salma Bentisse : Data Analyst (Bases de données & Restitution Visuelle)
 
 ---
 
