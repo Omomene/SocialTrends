@@ -59,8 +59,12 @@ services:
   # Superset
   # =====================================================
   superset:
-    image: apache/superset:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.superset
+    
     container_name: superset
+    
 
     restart: unless-stopped
 
@@ -73,6 +77,7 @@ services:
 
     environment:
       SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      PYTHONPATH: "/app/superset_home/.local/lib/python3.10/site-packages:/app/pythonpath"
 
     volumes:
       - superset_home:/app/superset_home

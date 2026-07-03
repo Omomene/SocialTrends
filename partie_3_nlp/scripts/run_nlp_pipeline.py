@@ -28,6 +28,7 @@ if __name__ == "__main__":
     run_script("02_sentiment_enrichment.py")
     run_script("03_topic_modeling.py")
     run_script("05_generate_summary.py")
+    run_script("06_correlate_match_events.py")
 
     print("=" * 80)
     print("Pipeline NLP terminé avec succès.")

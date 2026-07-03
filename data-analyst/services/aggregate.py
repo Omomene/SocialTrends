@@ -77,13 +77,6 @@ def aggregate_sentiment():
             .sum()
         )
 
-        avg_sentiment = (
-            group["sentiment"]
-            .apply(
-                lambda x: x["score"]
-            )
-            .mean()
-        )
 
         group["sentiment_numeric"] = (
             group["sentiment"]
@@ -94,10 +87,12 @@ def aggregate_sentiment():
             )
         )
 
-        sentiment_index = (
+        avg_sentiment = (
             group["sentiment_numeric"]
             .mean()
         )
+
+        sentiment_index = avg_sentiment
 
         dominant_sentiment = (
             group["sentiment"]

@@ -1,3 +1,5 @@
+from datetime import datetime
+import pandas as pd
 from database.mongo import MongoManager
 
 mongo = MongoManager()
@@ -21,23 +23,27 @@ def save_post(post: dict):
 
         "text_clean": post.get("text_clean"),
 
-        "language": post["language"],
+        "language": post.get("language", post.get("lang")),
 
         "sentiment": {
 
             "label": post["sentiment_label"],
 
-            "score": float(post["sentiment_score"])
+            "score": float(post["sentiment_score"]),
+
+            "method": post.get("sentiment_method")
         },
 
         "topic": {
-
             "id": int(post["topic_id"]),
-
-            "label": post["topic_label"]
+            "label": post["topic_label"],
+            "method": post.get("topic_method")
         },
 
-        "processed_at": post["processed_at"]
+        "processed_at": post.get(
+            "processed_at",
+            datetime.utcnow().isoformat()
+        )
     }
 
     mongo.insert_post(document)
